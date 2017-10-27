@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.backimage{
+    height: 100%;
+    width: 100%;
+    background-image:url("../images/FintroBack.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.centerintro{
+    margin: auto;
+    width: 50%;
+
+}
+
+
+/* center*/
+.outer {
+    display: table;
+    border: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: /*whatever width you want*/;
+}
+
+
+/*centr end*/
