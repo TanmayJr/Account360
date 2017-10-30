@@ -33,6 +33,7 @@
                                     <label></label><input class="form-control mr-sm-2" type = "password" name = "key" id="key" class = "box" placeholder="Password" />
                                    <h1 align="center"> <input class="btn btn-outline-info my-2 my-sm-0" type = "submit" value = "Login "/><br /></h1>
                                 </form>
+                                <a href="Fregister.php  .php">Dont have acount?</a>
 
                                 <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
 

@@ -1,8 +1,15 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: tanmay
+ * Date: 30/10/17
+ * Time: 9:51 AM
+ */?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Invoice</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bannerpagecss.css">
@@ -66,31 +73,27 @@
                     </div>
                     <div class="modal-body">
                         <div>
-                            <form action="Binv.php" method="post">
+                            <form action="Binvoice.php" method="post">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label class="col-form-label">Inventory details</label>
-                                        <input type="text" class="form-control" placeholder="Product name" name="invname">
+                                        <label class="col-form-label">Customer details</label>
+                                        <input type="text" class="form-control" placeholder="Customer name" name="empname">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label">&nbsp;</label>
-                                        <input type="number" class="form-control"  placeholder="Number of items" name="noinv">
+                                        <input type="text" class="form-control"  placeholder="Product name" name="invname">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label class="col-form-label">Cost details</label>
-                                        <input type="text" class="form-control w3-disabled"  name="invid" placeholder="Product ID">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="col-form-label">&nbsp;</label>
-                                        <input type="number" class="form-control" name="invcost" placeholder="Cost of one item">
+                                        <label class="col-form-label">Transaction details</label>
+                                        <input type="text" class="form-control"  name="noitems" placeholder="Number of purchased items">
                                     </div>
                                 </div>
-                                    <div class="btn-group btn-group-justified">
-                                        <div class="btn-group"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
-                                        <div class="btn-group"><button type="submit" class="btn btn-primary">Save changes</button></div>
-                                    </div>
+                                <div class="btn-group btn-group-justified">
+                                    <div class="btn-group"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+                                    <div class="btn-group"><button type="submit" class="btn btn-primary">Save changes</button></div>
+                                </div>
                             </form>
 
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 27, 2017 at 05:18 PM
+-- Generation Time: Oct 30, 2017 at 07:03 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `mini`
 --
-CREATE DATABASE IF NOT EXISTS `mini` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `mini`;
 
 -- --------------------------------------------------------
 
@@ -34,26 +32,17 @@ CREATE TABLE `empdetails` (
   `empcity` varchar(32) NOT NULL,
   `noemp` int(32) NOT NULL,
   `salemp` int(32) NOT NULL,
-  `noleaves` int(11) NOT NULL
+  `noleaves` int(11) NOT NULL,
+  `bought` int(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `empdetails`
 --
 
-INSERT INTO `empdetails` (`email`, `empname`, `empcity`, `noemp`, `salemp`, `noleaves`) VALUES
-('roshan@gmail.com', 'tanmay', 'Virar', 101, 10000, 8),
-('roshan@gmail.com', 'sarvesh', 'borivali', 102, 12000, 13),
-('roshan@gmail.com', 'pranav', 'andheri', 103, 15000, 14),
-('saheel', 'abhishek', 'borivali', 1, 12000, 16),
-('saheel', 'vikas', 'andheri', 2, 12000, 0),
-('saheel', 'avinash', 'malad', 3, 14000, 3),
-('saheel@gmail.com', 'abhishek', 'vazira', 1001, 8000, 13),
-('saheel@gmail.com', 'vikas', 'malad', 1002, 12000, 1),
-('saheel@gmail.com', 'avinash', 'andheri', 1003, 20000, 12),
-('saheel@gmail.com', 'SARVESH', 'mumbai', 0, 50000, 20),
-('saheel@gmail.com', 'abc', 'mumbai', 111, 123432, 2),
-('saheel@gmail.com', 'Ankita', 'mumbai', 12345, 500000, 20);
+INSERT INTO `empdetails` (`email`, `empname`, `empcity`, `noemp`, `salemp`, `noleaves`, `bought`) VALUES
+('sundar@gmail.com', 'tanmay', 'virar', 1, 2147483647, 12345678, 10),
+('sundar@gmail.com', 'roshan', 'mumbai', 2, 7878699, 2147483647, 70);
 
 -- --------------------------------------------------------
 
@@ -65,19 +54,40 @@ CREATE TABLE `invdetails` (
   `email` varchar(1024) NOT NULL,
   `invname` varchar(32) NOT NULL,
   `noinv` int(32) NOT NULL,
-  `invcost` int(32) NOT NULL
+  `invcost` int(32) NOT NULL,
+  `sold` int(32) NOT NULL,
+  `invid` int(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `invdetails`
 --
 
-INSERT INTO `invdetails` (`email`, `invname`, `noinv`, `invcost`) VALUES
-('', 'tanmay', 23424, 32),
-('', 'macbook', 20, 100000),
-('monu@mm.com', 'iphone', 12, 2000),
-('avi@mail.com', 'pred', 1, 100000),
-('saheel@gmail.com', 'ABCDEFGHI', 0, 100000);
+INSERT INTO `invdetails` (`email`, `invname`, `noinv`, `invcost`, `sold`, `invid`) VALUES
+('sundar@gmail.com', 'iphone', 1000, 6000, 60, 1),
+('sundar@gmail.com', 'macbook', 100000, 100000, 20, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `invoice`
+--
+
+CREATE TABLE `invoice` (
+  `email` varchar(1024) NOT NULL,
+  `custid` varchar(32) NOT NULL,
+  `invid` varchar(32) NOT NULL,
+  `noitems` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `invoice`
+--
+
+INSERT INTO `invoice` (`email`, `custid`, `invid`, `noitems`) VALUES
+('sundar@gmail.com', 'tanmay', 'iphone', 10),
+('sundar@gmail.com', 'roshan', 'macbook', 20),
+('sundar@gmail.com', 'roshan', 'iphone', 50);
 
 -- --------------------------------------------------------
 
@@ -99,15 +109,23 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `company`, `active`) VALUES
-(11, 'Roshan', '25d55ad283aa400af464c76d713c07ad', 'roshan@gmail.com', 'Prats', 0),
-(12, 'Saheel', '25d55ad283aa400af464c76d713c07ad', 'saheel@gmail.com', 'SFIT', 0),
-(13, 'Akshay Yadav', '92b9cccc0b98c3a0b8d0df25a421c0e3', 'akki@gmail.com', 'Akshay Industries', 0),
-(14, '', 'd41d8cd98f00b204e9800998ecf8427e', '', '', 0),
-(15, 'Tanmay', '81dc9bdb52d04dc20036dbd8313ed055', 'tanmay@gmail.com', 'DCOM', 0);
+(1, 'Sundar', '81dc9bdb52d04dc20036dbd8313ed055', 'sundar@gmail.com', 'Google', 0);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `empdetails`
+--
+ALTER TABLE `empdetails`
+  ADD PRIMARY KEY (`noemp`);
+
+--
+-- Indexes for table `invdetails`
+--
+ALTER TABLE `invdetails`
+  ADD PRIMARY KEY (`invid`);
 
 --
 -- Indexes for table `users`
@@ -120,10 +138,20 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `empdetails`
+--
+ALTER TABLE `empdetails`
+  MODIFY `noemp` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `invdetails`
+--
+ALTER TABLE `invdetails`
+  MODIFY `invid` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `user_id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

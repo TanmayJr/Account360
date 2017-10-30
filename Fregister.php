@@ -32,14 +32,14 @@
                             <input class="form-control mr-sm-2" id="name" name="name" type="text" placeholder="Name">
                         </p>
 
-                        <p>
-                            <input class="form-control mr-sm-2" id="email" name="email" type="text" placeholder="Email Id">
-                        </p>
+
 
                         <p>
                             <input class="form-control mr-sm-2" id="company" name="company" type="text" placeholder="Company Name">
                         </p>
-
+                        <p>
+                            <input class="form-control mr-sm-2" id="email" name="email" type="text" placeholder="Email Id">
+                        </p>
 
                         <p>
                             <input class="form-control mr-sm-2" id="pwd1" name="pwd1" type="password" placeholder="Password" onkeyup='check();' >
@@ -54,7 +54,9 @@
                         <input class="btn btn-outline-info my-2 my-sm-0" type="submit" name="submit" value="Create My Account" id="submit">
 
                         </form>
+                    <a href="Flogin.php">Already have an account</a>
                     </div>
+
                 </div>
 
             </div>
