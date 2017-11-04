@@ -49,6 +49,44 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     </style>
 
+
+    <script type="text/javascript">
+
+
+		/*============== For Login ==============*/
+
+		function validateForm2() {
+		    
+            //alert("Here");  
+
+		    var username1 = document.login.username;
+		    var password1 = document.login.password;
+
+            
+
+		    if (username1.value.length == 0 ){
+		    	alert("Invalid UserName or password !");
+		    	username1.focus();
+		    	return false;
+		    }
+
+
+		    var paswd =  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;  
+
+
+			if(!password1.value.match(paswd)) {
+				
+				alert("Invalid UserName or password !");
+				username1.focus();
+                return false;
+			}  
+			return true;
+		}
+
+		/*============== LogIn Done =============*/
+
+	</script>
+
 </head>
 
 <body bgcolor = "#FFFFFF">
@@ -59,7 +97,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div style = "margin:30px">
 
-            <form action = "" method = "post">
+            <form action = "" name = "login" method = "post" onsubmit="return validateForm2()">
                 <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
                 <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
                 <input type = "submit" value = " Submit "/><br />
