@@ -19,7 +19,53 @@
 
     <link rel="stylesheet" type="text/css" href="css/w3.css">
 
+    <script type="text/javascript">
 
+        /*=========== For Signup ===========*/                      
+        
+        function validateForm() {
+
+            //alert("HELLO");
+
+            var name = document.registration.empname;
+            var company = document.registration.empcity;
+            var email = document.registration.salemp;
+            var email1 = document.registration.noleaves;
+
+            if (name.value.length == 0 ){
+                alert("Customer name cannot be empty !!");
+                name.focus();
+                return false;
+            }
+
+            if (company.value.length == 0 ){
+                alert("Customer City cannot be empty !!");
+                company.focus();
+                return false;
+            }
+
+            
+              var phoneno = /^\d{10}$/;  
+            if (!email.value.match(phoneno) ){
+                alert("Contact number 10 digits !!");
+                email.focus();
+                return false;
+            }
+
+            if (email1.value.length == 0 ){
+                alert("Bank account number cannot be empty !!");
+                email1.focus();
+                return false;
+            }            
+            
+
+
+
+            return true;
+        }
+
+        /*============ Signup Done =================*/
+</script>
 
 
 </head>
@@ -66,7 +112,7 @@
                     </div>
                     <div class="modal-body">
                         <div>
-                            <form action="Bemp.php" method="post">
+                            <form action="Bemp.php" method="post" name="registration" onsubmit="return validateForm()">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label">Customer details</label>

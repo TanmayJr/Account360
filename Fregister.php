@@ -13,6 +13,58 @@
  <link rel="abc" sizes="192x192" href="icon.jpg">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
+<script type="text/javascript">
+
+        /*=========== For Signup ===========*/                      
+        
+        function validateForm() {
+
+            
+            var name = document.registration.name;
+            var company = document.registration.company;
+            var email = document.registration.email;
+            var pwd1 = document.registration.pwd1;
+            var pwd2 = document.registration.pwd2;
+            
+            if (name.value.length == 0 ){
+                alert("UserName cannot be empty !!");
+                name.focus();
+                return false;
+            }
+
+            if (company.value.length == 0 ){
+                alert("Company cannot be empty !!");
+                company.focus();
+                return false;
+            }
+
+            if (email.value.length == 0 ){
+                alert("Email cannot be empty !!");
+                email.focus();
+                return false;
+            }
+
+            var paswd=  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;  
+            if(!pwd1.value.match(paswd))   
+            {    
+                alert('password between 7 to 15 characters which contain at least one numeric digit and a special character!')  
+                pwd1.focus();
+                return false;
+            }
+
+            if ( pwd1.value != pwd2.value) {
+                alert("Password should be same !!");
+                pwd2.focus();      
+                return false;        
+                
+            }
+
+            return true;
+        }
+
+        /*============ Signup Done =================*/
+</script>
+
 
 </head>
 
@@ -24,7 +76,7 @@
             <div class="inner">
                 <div class="centerintro">
                     <div>
-                        <form name="registration" action="Bregister.php" method="post"">
+                        <form name="registration" action="Bregister.php" method="post" onsubmit="return validateForm()">
                         <!--   onsubmit="return formvalidation();  -->
                         <h2 font color="white">Sign Up</h2>
 

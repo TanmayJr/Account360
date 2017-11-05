@@ -19,6 +19,46 @@
 
     <link rel="stylesheet" type="text/css" href="css/w3.css">
 
+<script type="text/javascript">
+
+        /*=========== For Signup ===========*/                      
+        
+        function validateForm() {
+
+            //alert("HELLO");
+
+            var name = document.registration.invname;
+            var company = document.registration.noinv;
+            var email = document.registration.citem;
+
+            if (name.value.length == 0 ){
+                alert("Product name cannot be empty !!");
+                name.focus();
+                return false;
+            }
+
+            if (company.value.length == 0 ){
+                alert("No. of items cannot be empty !!");
+                company.focus();
+                return false;
+            }
+
+            
+
+            if (email.value.length == 0 ){
+                alert("Cost of items cannot be empty !!");
+                email.focus();
+                return false;
+            }            
+            
+
+
+
+            return true;
+        }
+
+        /*============ Signup Done =================*/
+</script>
 
 
 
@@ -66,7 +106,7 @@
                     </div>
                     <div class="modal-body">
                         <div>
-                            <form action="Binv.php" method="post">
+                            <form action="Binv.php" method="post" name="registration" onsubmit="return validateForm()">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label">Inventory details</label>
@@ -84,7 +124,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label">&nbsp;</label>
-                                        <input type="number" class="form-control" name="invcost" placeholder="Cost of one item">
+                                        <input type="number" class="form-control" name="invcost" placeholder="Cost of one item" name="citem">
                                     </div>
                                 </div>
                                     <div class="btn-group btn-group-justified">
