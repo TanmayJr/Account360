@@ -70,7 +70,12 @@
     <a href="Femp.php" class="w3-bar-item w3-padding-16 w3-button">Customer</a>
     <a href="Finv.php" class="w3-bar-item w3-padding-16 w3-button">Inventory</a>
     <a href="Finvoice.php" class="w3-bar-item w3-padding-16 w3-button">Invoice</a>
+<!-- <<<<<<< master -->
     <a href="Fbank.php" class="w3-bar-item w3-padding-16 w3-button">Bank Info</a>
+<!-- ======= -->
+    <a href="Freport.php" class="w3-bar-item w3-padding-16 w3-button">Report</a>
+
+<!-- >>>>>>> master -->
     <a href="logout.php" class="w3-bar-item w3-button w3-padding-16 w3-hover-red w3-right">Logout</a>
 </div>
 <!-- navbar ends-->
