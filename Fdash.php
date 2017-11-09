@@ -50,8 +50,8 @@ include ('Bdash.php');
         function drawExpenseChart(){ //call to expense chart
             var data = google.visualization.arrayToDataTable([
                 ['Task', 'Hours per Day'],
-                ['Present', <?php echo $pres ?>],
-                ['Abs',  <?php echo $abs ?>],
+                ['Sold products', <?php echo $soldinv ?>],
+                ['Remaining',  <?php echo $reminv ?>],
 
             ]);
 
@@ -123,6 +123,8 @@ include ('Bdash.php');
     <a href="Finv.php" class="w3-bar-item w3-padding-16 w3-button">Inventory</a>
     <a href="Finvoice.php" class="w3-bar-item w3-padding-16 w3-button">Invoice</a>
     <a href="Fbank.php" class="w3-bar-item w3-padding-16 w3-button">Bank Info</a>
+    <a href="Freport.php" class="w3-bar-item w3-padding-16 w3-button">Report</a>
+
     <a href="logout.php" class="w3-bar-item w3-button w3-padding-16 w3-hover-red w3-right">Logout</a>
 </div>
 <!-- navbar ends-->
@@ -207,24 +209,58 @@ include ('Bdash.php');
 
 
     <!--    aaaaaaaaaaaaaaaaaaaaaaaa -->
-    <div class="w3-row" style="margin-top: 30px;">
-        <!--        <div class="w3-col m4 l1">&nbsp;</div>-->
-        <div class="w3-col m4 l3">
-            <div class="w3-card-4">
-                <header class="w3-container w3-blue">
-                    <h1>Expenses</h1>
-                </header>
+    <div class="w3-col m4 l3">
+        <div class="w3-card-4">
+            <header class="w3-container w3-blue">
+                <h1>Updates</h1>
+            </header>
 
+            <div class="w3-container">
                 <div class="wrapper">
 
                     <div class="card-block">
-                        <div class="card-title">Expenses</div>
-                        <div id="Profitloss_chart"></div>
+                        <div class="card-title"><h3>Best</h3></div>
+                        <hr>
+                        <div>
+                            <?php
+                            $result=mysqli_query($con,"SELECT * from invdetails where noinv < 100");
+                            // $data=mysqli_fetch_assoc($result);
+                            // $abs = $data['image'];
+                            // echo $abs;
+                            // echo "<img src='../images/".$abs."' >";
+                            while($data=mysqli_fetch_assoc($result)){
+//        $in = $data['invname'];
+                                echo "<ul>";
+                                echo "<li>Refill ".$data['invname']."</li>";
+//        echo "<h1>".$data['artname']."   ".$data['cost']."<h1></div>";
+                                echo "</ul>";
+                            }
+
+                            ?>
+
+
+
+                        </div>
                     </div>
                 </div>
-
             </div>
+
         </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!--    aaaaaaaaaaaaaaaaaaaaaaaa -->
+
+
+
         <div class="w3-col m4 l1">&nbsp;</div>
 
         <div class="w3-col m4 l3">
@@ -270,21 +306,21 @@ include ('Bdash.php');
         <div class="w3-col m4 l3">
             <div class="w3-card-4">
                 <header class="w3-container w3-blue">
-                    <h1>Employee Info</h1>
+                    <h1>Customer Info</h1>
                 </header>
 
                 <div class="w3-container">
                     <div class="wrapper">
 
                         <div class="card-block">
-                            <div class="card-title"><h3>Employee Count</h3></div>
+                            <div class="card-title"><h3>Best</h3></div>
                             <hr>
                             <div>
-                                <h4>Total number of employees:</h4>
-                                <h2><?php echo $totale ?></h2>
+                                <h4>Best customer:</h4>
+                                <h2><?php echo $bestcust ?></h2>
                                 <hr>
-                                <h4>Employees on leave</h4>
-                                <h2><?php echo $abs ?></h2>
+                                <h4>Total purchase</h4>
+                                <h2><?php echo $bestpur ?></h2>
                             </div>
                         </div>
                     </div>

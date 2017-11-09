@@ -60,6 +60,39 @@ $datex = $row->date_update;
 
 #echo $amount;
 
+#best cistomer
+$result=mysqli_query($con,"SELECT empname as name from empdetails where email='$e' and bought=(Select max(bought) from empdetails  where email='$e')");
+#$data=mysqli_fetch_assoc($result);
+#$product = $data['invid'];
+$row = $result->fetch_object();
+$bestcust = $row->name;
+#echo $product;
+
+$result=mysqli_query($con,"SELECT bought as name from empdetails where email='$e' and empname='$bestcust'");
+#$data=mysqli_fetch_assoc($result);
+#$product = $data['invid'];
+$row = $result->fetch_object();
+$bestpur = $row->name;
+#echo $product;
+
+#total inv
+$result=mysqli_query($con,"SELECT sum(noinv) as name from invdetails where email='$e'");
+#$data=mysqli_fetch_assoc($result);
+#$product = $data['invid'];
+$row = $result->fetch_object();
+$reminv = $row->name;
+
+
+$result=mysqli_query($con,"SELECT sum(sold) as name from invdetails where email='$e'");
+#$data=mysqli_fetch_assoc($result);
+#$product = $data['invid'];
+$row = $result->fetch_object();
+$soldinv = $row->name;
+
+
+
+
+
 /*$result=mysqli_query($con,"SELECT noleaves from empdetails where email=$e ");
 echo mysqli_num_rows($result);
 while ($row = mysqli_fetch_assoc($result) ){

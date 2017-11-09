@@ -63,9 +63,12 @@ else{
     print "try again";
 }
 $query2 ="update invdetails set sold = sold+'$noitems' where invname = '$invname' ";
+$query4 ="update invdetails set noinv = noinv-'$noitems' where invname = '$invname' ";
 $query3 ="update empdetails set bought = bought+'$noitems' where empname = '$empname' ";
+
 mysqli_query($con, $query) or die(mysqli_error("in er"));
 mysqli_query($con, $query2) or die(mysqli_error("in er"));
+mysqli_query($con, $query4) or die(mysqli_error("in er"));
 mysqli_query($con, $query3) or die(mysqli_error("in er"));
 
 mysqli_close($con);
