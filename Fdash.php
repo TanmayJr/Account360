@@ -122,6 +122,7 @@ include ('Bdash.php');
     <a href="Femp.php" class="w3-bar-item w3-padding-16 w3-button">Customer</a>
     <a href="Finv.php" class="w3-bar-item w3-padding-16 w3-button">Inventory</a>
     <a href="Finvoice.php" class="w3-bar-item w3-padding-16 w3-button">Invoice</a>
+    <a href="Fbank.php" class="w3-bar-item w3-padding-16 w3-button">Bank Info</a>
     <a href="logout.php" class="w3-bar-item w3-button w3-padding-16 w3-hover-red w3-right">Logout</a>
 </div>
 <!-- navbar ends-->
@@ -183,14 +184,16 @@ include ('Bdash.php');
                             <hr>
                             <div>
                                 <h4>Bank Account 1</h4>
-                                <p>Balance: </p>
-                                <p>Last Updated:</p>
+                                <p>Balance: <?php echo $amount ?></p><!here>
+                                <p>Last Updated:<?php echo $datex ?></p>
                                 <hr>
+                                    <a href="Fbank.php">
+                                    <button class="w3-button w3-circle w3-teal" style="display: inline-block;">+</button>
+                                  </a>
+                                    <span><p style="display:inline-block;"> &nbsp;Edit Details</p></span>
 
-
-                                <h4>Bank Account 1</h4>
-                                <p>Balance: </p>
-                                <p>Last Updated:</p>
+                                  <!Button here>
+                                <hr>
                             </div>
                         </div>
                     </div>
