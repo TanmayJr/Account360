@@ -52,10 +52,16 @@ echo "Database found";
 $empname = $_POST["empname"];
 $invname = $_POST["invname"];
 $noitems = $_POST["noitems"];
+$pay=0;
+if(isset($_POST['payement_received'])){
+  echo "Set";
+  $pay=1;
+}
+
+echo $pay;
 
 
-
-$query = "insert into invoice (email,custid,invid,noitems) values ('$e','$empname','$invname','$noitems')";
+$query = "insert into invoice (email,custid,invid,noitems, Pay_received) values ('$e','$empname','$invname','$noitems', '$pay')";
 if($query == true){
     echo "true";
 }
@@ -74,6 +80,3 @@ mysqli_query($con, $query3) or die(mysqli_error("in er"));
 mysqli_close($con);
 header("Location:Fdash.php");
 ?>
-
-
-

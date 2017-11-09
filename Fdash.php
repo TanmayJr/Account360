@@ -21,10 +21,10 @@ include ('Bdash.php');
         google.charts.setOnLoadCallback(drawSalesChart);
 
 
-        function drawIncomeChart() {    //call to income chart
+        function drawIncomeChart() {    //call to income chart  //OVERDUE CHART
             var data = google.visualization.arrayToDataTable([
-                ['Overdue', '30 days Paid', 'Left', { role: 'annotation' } ],
-                ['2010', 15, 37,'']
+                ['Overdue', 'Paid', 'Left', { role: 'annotation' } ],
+                ['November', <?php echo $payd ?>, <?php echo $leftd ?>,'']  //1 0 details
 
             ]);
 
@@ -47,7 +47,7 @@ include ('Bdash.php');
             chart.draw(view, options);
         }
 
-        function drawExpenseChart(){ //call to expense chart
+        function drawExpenseChart(){ //call to expense chart      //EMP CHART
             var data = google.visualization.arrayToDataTable([
                 ['Task', 'Hours per Day'],
                 ['Sold products', <?php echo $soldinv ?>],
@@ -155,7 +155,7 @@ include ('Bdash.php');
         <div class="w3-col m4 l3">
             <div class="w3-card-4">
                 <header class="w3-container w3-blue">
-                    <h1>Income chart</h1>
+                    <h1>Payment Overdue</h1>
                 </header>
 
                 <div class="w3-container">
@@ -175,7 +175,7 @@ include ('Bdash.php');
         <div class="w3-col m4 l3">
             <div class="w3-card-4">
                 <header class="w3-container w3-blue">
-                    <h1>Income chart</h1>
+                    <h1>Bank Account</h1>
                 </header>
 
                 <div class="w3-container">

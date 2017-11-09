@@ -56,10 +56,7 @@ if($query == true){
 else{
     print "try again";
 }
-mysqli_query($con, $query) or die(mysqli_error("in er"));
+mysqli_query($con, $query) or die(mysqli_error($con));
 mysqli_close($con);
 header("Location:Fdash.php");
 ?>
-
-
-

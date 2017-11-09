@@ -21,8 +21,8 @@
 
     <script type="text/javascript">
 
-        /*=========== For Signup ===========*/                      
-        
+        /*=========== For Signup ===========*/
+
         function validateForm() {
 
             //alert("HELLO");
@@ -44,8 +44,8 @@
                 return false;
             }
 
-            
-              var phoneno = /^\d{10}$/;  
+
+              var phoneno = /^\d{10}$/;
             if (!email.value.match(phoneno) ){
                 alert("Contact number 10 digits !!");
                 email.focus();
@@ -56,8 +56,8 @@
                 alert("Bank account number cannot be empty !!");
                 email1.focus();
                 return false;
-            }            
-            
+            }
+
 
 
 
@@ -76,8 +76,12 @@
     <a href="Femp.php" class="w3-bar-item w3-padding-16 w3-button">Customer</a>
     <a href="Finv.php" class="w3-bar-item w3-padding-16 w3-button">Inventory</a>
     <a href="Finvoice.php" class="w3-bar-item w3-padding-16 w3-button">Invoice</a>
+<!-- <<<<<<< master -->
+    <a href="Fbank.php" class="w3-bar-item w3-padding-16 w3-button">Bank Info</a>
+<!-- ======= -->
     <a href="Freport.php" class="w3-bar-item w3-padding-16 w3-button">Report</a>
 
+<!-- >>>>>>> master -->
     <a href="logout.php" class="w3-bar-item w3-button w3-padding-16 w3-hover-red w3-right">Logout</a>
 </div>
 <!-- navbar ends-->
@@ -128,7 +132,7 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label">Contact details</label>
-                                        <input type="text" class="form-control w3-disabled"  name="noemp" placeholder="Customer ID">
+                                        <input type="text" class="form-control"  name="noemp" placeholder="Customer ID">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label">&nbsp;</label>
