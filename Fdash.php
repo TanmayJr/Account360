@@ -90,7 +90,7 @@ include ('Bdash.php');
         }
 
 
-        function drawSalesChart() {
+        function drawSalesChart() {//Going down
             var data = google.visualization.arrayToDataTable([
                 ['Year', 'Sales', 'Expenses'],
                 ['2004',  1000,      400],
@@ -227,10 +227,10 @@ include ('Bdash.php');
         <div class="w3-col m4 l3">
             <div class="w3-card-4">
                 <header class="w3-container w3-blue">
-                    <h1>Income chart</h1>
+                    <h1>Topselling Item</h1>
                 </header>
 
-                <div class="w3-container">
+                <!--<div class="w3-container">
                     <div class="wrapper">
 
                         <div class="card-block">
@@ -238,7 +238,26 @@ include ('Bdash.php');
                             <div id="Sales_chart"></div>
                         </div>
                     </div>
+                </div>-->
+
+                <div class="w3-container">
+                    <div class="wrapper">
+
+                        <div class="card-block">
+
+                            <hr>
+                            <div>
+                                <h4>Most Sold product: </h4>
+                                <h2><?php echo $product ?></h2>
+                                <hr>
+                                <h4>Number Sold: </h4>
+                                <h2><?php echo $count ?></h2>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+
 
             </div>
         </div>
@@ -248,7 +267,7 @@ include ('Bdash.php');
         <div class="w3-col m4 l3">
             <div class="w3-card-4">
                 <header class="w3-container w3-blue">
-                    <h1>Income chart</h1>
+                    <h1>Employee Info</h1>
                 </header>
 
                 <div class="w3-container">
