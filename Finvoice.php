@@ -28,8 +28,8 @@
 
 <script type="text/javascript">
 
-        /*=========== For Signup ===========*/                      
-        
+        /*=========== For Signup ===========*/
+
         function validateForm() {
 
             //alert("HELLO");
@@ -54,8 +54,8 @@
                 alert("No. of items cannot be empty !!");
                 email.focus();
                 return false;
-            }            
-            
+            }
+
 
 
 
@@ -75,6 +75,7 @@
     <a href="Femp.php" class="w3-bar-item w3-padding-16 w3-button">Customer</a>
     <a href="Finv.php" class="w3-bar-item w3-padding-16 w3-button">Inventory</a>
     <a href="Finvoice.php" class="w3-bar-item w3-padding-16 w3-button">Invoice</a>
+    <a href="Fbank.php" class="w3-bar-item w3-padding-16 w3-button">Bank Info</a>
     <a href="logout.php" class="w3-bar-item w3-button w3-padding-16 w3-hover-red w3-right">Logout</a>
 </div>
 <!-- navbar ends-->
@@ -95,9 +96,7 @@
 <div class="container" style="margin-top: 100px">
     <div class="row" style="margin: 60px">
 
-        <a href="employee.php">  <button class="btn btn-primary btn-lg" style="margin-right: 20px">
-                View details
-            </button></a>
+
         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
             Add details
         </button>
@@ -126,6 +125,11 @@
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label">Transaction details</label>
                                         <input type="text" class="form-control"  name="noitems" placeholder="Number of purchased items">
+                                    </div>
+                                    <div class="form-group col-md-6"><!Mod>
+                                        <label class="col-form-label text-center">&nbsp;Payement Done: </label>
+
+                                        <input type="checkbox" class="form-control"  placeholder="" name="payement_received">
                                     </div>
                                 </div>
                                 <div class="btn-group btn-group-justified">

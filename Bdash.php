@@ -58,6 +58,21 @@ $row = $result->fetch_object();
 $datex = $row->date_update;
 #echo $datex;
 
+
+#For graph
+
+$result=mysqli_query($con,"SELECT count(*) as total from invoice where email='$e' and Pay_received = 1");
+$data=mysqli_fetch_assoc($result);
+$payd = $data['total'];
+#echo $payd;
+
+$result=mysqli_query($con,"SELECT count(*) as total from invoice where email='$e'");
+$data=mysqli_fetch_assoc($result);
+$totald = $data['total'];
+#echo $totald;
+
+$leftd = $totald - $payd;
+
 #echo $amount;
 
 /*$result=mysqli_query($con,"SELECT noleaves from empdetails where email=$e ");
