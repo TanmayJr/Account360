@@ -33,7 +33,32 @@ $result=mysqli_query($con,"SELECT count(*) as total from empdetails where email=
 $data=mysqli_fetch_assoc($result);
 $totale = $data['total'];
 
+
 $pres = $totale - $abs;
+
+
+$result=mysqli_query($con,"SELECT invid as name from invoice where email='$e' and noitems=(Select max(noitems) from invoice  where email='$e')");
+#$data=mysqli_fetch_assoc($result);
+#$product = $data['invid'];
+$row = $result->fetch_object();
+$product = $row->name;
+#echo $product;
+
+$result=mysqli_query($con,"SELECT max(noitems) as noi from invoice where email='$e'");
+$row = $result->fetch_object();
+$count = $row->noi;
+#echo $count;
+
+$result = mysqli_query($con, "SELECT Amount from users where email='$e' ");
+$row = $result->fetch_object();
+$amount = $row->Amount;
+
+$result = mysqli_query($con, "SELECT date_update from users where email='$e' ");
+$row = $result->fetch_object();
+$datex = $row->date_update;
+#echo $datex;
+
+#echo $amount;
 
 /*$result=mysqli_query($con,"SELECT noleaves from empdetails where email=$e ");
 echo mysqli_num_rows($result);

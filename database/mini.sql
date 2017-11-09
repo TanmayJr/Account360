@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 30, 2017 at 07:03 AM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 5.6.20
+-- Host: 127.0.0.1
+-- Generation Time: Nov 09, 2017 at 04:22 PM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -42,7 +44,9 @@ CREATE TABLE `empdetails` (
 
 INSERT INTO `empdetails` (`email`, `empname`, `empcity`, `noemp`, `salemp`, `noleaves`, `bought`) VALUES
 ('sundar@gmail.com', 'tanmay', 'virar', 1, 2147483647, 12345678, 10),
-('sundar@gmail.com', 'roshan', 'mumbai', 2, 7878699, 2147483647, 70);
+('sundar@gmail.com', 'roshan', 'mumbai', 2, 7878699, 2147483647, 70),
+('roshan@gmail.com', 'New ', 'Mumbai', 127, 2147483647, 12873131, 0),
+('roshan@gmail.com', 'Roshan', 'Mumbai ', 2147483647, 2147483647, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -87,7 +91,8 @@ CREATE TABLE `invoice` (
 INSERT INTO `invoice` (`email`, `custid`, `invid`, `noitems`) VALUES
 ('sundar@gmail.com', 'tanmay', 'iphone', 10),
 ('sundar@gmail.com', 'roshan', 'macbook', 20),
-('sundar@gmail.com', 'roshan', 'iphone', 50);
+('sundar@gmail.com', 'roshan', 'iphone', 50),
+('roshan@gmail.com', 'Kartik', 'Nokia Phone', 5);
 
 -- --------------------------------------------------------
 
@@ -101,15 +106,19 @@ CREATE TABLE `users` (
   `password` varchar(32) NOT NULL,
   `email` varchar(1024) NOT NULL,
   `company` varchar(32) NOT NULL,
-  `active` int(11) NOT NULL DEFAULT '0'
+  `active` int(11) NOT NULL DEFAULT '0',
+  `Bank_name` varchar(32) NOT NULL,
+  `Amount` int(255) NOT NULL,
+  `date_update` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `company`, `active`) VALUES
-(1, 'Sundar', '81dc9bdb52d04dc20036dbd8313ed055', 'sundar@gmail.com', 'Google', 0);
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `company`, `active`, `Bank_name`, `Amount`, `date_update`) VALUES
+(1, 'Sundar', '81dc9bdb52d04dc20036dbd8313ed055', 'sundar@gmail.com', 'Google', 0, 'ICIC', 50000, '0000-00-00'),
+(2, 'Roshan', '294d789c9234a452c2d7e3642eb38cb2', 'roshan@gmail.com', 'Rosh', 0, 'Axis', 10510, '2017-11-09');
 
 --
 -- Indexes for dumped tables
@@ -141,7 +150,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `empdetails`
 --
 ALTER TABLE `empdetails`
-  MODIFY `noemp` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `noemp` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483647;
 --
 -- AUTO_INCREMENT for table `invdetails`
 --
@@ -151,7 +160,8 @@ ALTER TABLE `invdetails`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

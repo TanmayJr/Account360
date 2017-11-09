@@ -90,7 +90,7 @@ include ('Bdash.php');
         }
 
 
-        function drawSalesChart() {
+        function drawSalesChart() {//Going down
             var data = google.visualization.arrayToDataTable([
                 ['Year', 'Sales', 'Expenses'],
                 ['2004',  1000,      400],
@@ -122,6 +122,7 @@ include ('Bdash.php');
     <a href="Femp.php" class="w3-bar-item w3-padding-16 w3-button">Customer</a>
     <a href="Finv.php" class="w3-bar-item w3-padding-16 w3-button">Inventory</a>
     <a href="Finvoice.php" class="w3-bar-item w3-padding-16 w3-button">Invoice</a>
+    <a href="Fbank.php" class="w3-bar-item w3-padding-16 w3-button">Bank Info</a>
     <a href="logout.php" class="w3-bar-item w3-button w3-padding-16 w3-hover-red w3-right">Logout</a>
 </div>
 <!-- navbar ends-->
@@ -183,14 +184,16 @@ include ('Bdash.php');
                             <hr>
                             <div>
                                 <h4>Bank Account 1</h4>
-                                <p>Balance: </p>
-                                <p>Last Updated:</p>
+                                <p>Balance: <?php echo $amount ?></p><!here>
+                                <p>Last Updated:<?php echo $datex ?></p>
                                 <hr>
+                                    <a href="Fbank.php">
+                                    <button class="w3-button w3-circle w3-teal" style="display: inline-block;">+</button>
+                                  </a>
+                                    <span><p style="display:inline-block;"> &nbsp;Edit Details</p></span>
 
-
-                                <h4>Bank Account 1</h4>
-                                <p>Balance: </p>
-                                <p>Last Updated:</p>
+                                  <!Button here>
+                                <hr>
                             </div>
                         </div>
                     </div>
@@ -227,10 +230,10 @@ include ('Bdash.php');
         <div class="w3-col m4 l3">
             <div class="w3-card-4">
                 <header class="w3-container w3-blue">
-                    <h1>Income chart</h1>
+                    <h1>Topselling Item</h1>
                 </header>
 
-                <div class="w3-container">
+                <!--<div class="w3-container">
                     <div class="wrapper">
 
                         <div class="card-block">
@@ -238,7 +241,26 @@ include ('Bdash.php');
                             <div id="Sales_chart"></div>
                         </div>
                     </div>
+                </div>-->
+
+                <div class="w3-container">
+                    <div class="wrapper">
+
+                        <div class="card-block">
+
+                            <hr>
+                            <div>
+                                <h4>Most Sold product: </h4>
+                                <h2><?php echo $product ?></h2>
+                                <hr>
+                                <h4>Number Sold: </h4>
+                                <h2><?php echo $count ?></h2>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+
 
             </div>
         </div>
@@ -248,7 +270,7 @@ include ('Bdash.php');
         <div class="w3-col m4 l3">
             <div class="w3-card-4">
                 <header class="w3-container w3-blue">
-                    <h1>Income chart</h1>
+                    <h1>Employee Info</h1>
                 </header>
 
                 <div class="w3-container">
